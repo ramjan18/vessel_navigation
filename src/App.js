@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+
 import './App.css';
+import MapComponent from './components/MapComponent';
 
 function App() {
+
+  const startlat = 22.1696;
+  const startlng = 91.4996;
+  const endlat = 22.2637;
+  const endlng = 91.7159;
+  const speed = 20; 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <h1>VESSEL NAVIGATON</h1>
+    <MapComponent startlat={startlat} startlan={startlng} endlat={endlat} endlng={endlng} speed={speed}></MapComponent>
     </div>
   );
 }
