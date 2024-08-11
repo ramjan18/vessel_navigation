@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
     <h1>VESSEL NAVIGATON</h1>
-    <MapComponent startlat={startlat} startlan={startlng} endlat={endlat} endlng={endlng} speed={speed}></MapComponent>
+    <MapComponent startlat={startlat} startlng={startlng} endlat={endlat} endlng={endlng} speed={speed}></MapComponent>
     </div>
   );
 }
