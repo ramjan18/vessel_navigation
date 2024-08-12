@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect,useState } from 'react'
-import { MapContainer, TileLayer, Marker, Polyline } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import vessel from "../Assets/vessel.png";
@@ -10,7 +10,7 @@ import end from "../Assets/end.png";
 
 const vesselIcon = L.divIcon({
     className: 'vessel-icon',
-    html: `<img src="${vessel}" style="transform: rotate(62deg); width: 20px; height: 90px;" />`,
+    html: `<img src="${vessel}" style="transform: rotate(62deg); width: 20px; height: 90px;"  />`,
     iconSize: [3, 80],
     iconAnchor: [20, 40]
 });
@@ -34,7 +34,7 @@ export default function MapComponent({ startlat, startlng, endlat, endlng, speed
     useEffect(() => {
         const distance = totalDistance(startlat, startlng, endlat, endlng);
         const travelTime = (distance / speed) * 3600; 
-        const totalSteps = Math.floor(travelTime / 1000); 
+        const totalSteps = Math.floor(travelTime / 500); 
 
         let stepIndex = 0;
 
@@ -60,7 +60,7 @@ export default function MapComponent({ startlat, startlng, endlat, endlng, speed
            } else {
                clearInterval(interval); 
            }
-       }, 2000);
+       }, 500);
 
         return () => clearInterval(interval);
     }, [startlat, startlng, endlat, endlng, speed]);
